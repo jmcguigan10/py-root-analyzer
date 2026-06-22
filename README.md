@@ -24,6 +24,48 @@ You can also run from source without installing:
 python analyze_root_files.py --help
 ```
 
+## Pixi Install
+
+If this package directory owns the `pixi.toml`, use an editable PyPI path
+dependency that points at the project root:
+
+```toml
+[workspace]
+name = "root-qa"
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[dependencies]
+python = "3.12.*"
+
+[pypi-dependencies]
+root-qa = { path = ".", editable = true }
+
+[tasks]
+help = "root-qa --help"
+qa = "root-qa --data-dir ../../data --sample-entries 25 --strict"
+quick = "root-qa --config configs/quick.toml --data-dir ../../data"
+```
+
+Then run:
+
+```bash
+pixi install
+pixi run root-qa --help
+pixi run qa
+```
+
+If the Pixi workspace lives in the parent repo instead, point the path at this
+package directory:
+
+```toml
+[pypi-dependencies]
+root-qa = { path = ".tmp/root_qa", editable = true }
+```
+
+`editable = true` is the Pixi equivalent of `pip install -e .`: changes under
+`src/root_qa` are picked up without rebuilding or reinstalling the package.
+
 ## Run
 
 From this package directory, the parent repo's sample data is at `../../data`:
