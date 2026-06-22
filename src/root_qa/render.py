@@ -1,4 +1,4 @@
-"""Render typed QA reports as JSON or compact human-readable text."""
+"""Render typed QA reports as JSON or a readable text format."""
 
 from __future__ import annotations
 
