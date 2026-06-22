@@ -1,0 +1,6 @@
+# Inspect every TTree cycle and keep sampling disabled for speed.
+recursive = true
+include_all_cycles = true
+sample_entries = 0
+json_stdout = false
+strict = false

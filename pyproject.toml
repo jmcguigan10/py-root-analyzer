@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "root-qa"
+version = "0.1.0"
+description = "Format-aware QA for MUSE-style CERN ROOT files"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "awkward",
+  "numpy",
+  "uproot",
+]
+
+[project.scripts]
+root-qa = "root_qa.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

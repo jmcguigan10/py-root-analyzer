@@ -1,0 +1,6 @@
+# Normal latest-cycle QA run.
+recursive = true
+include_all_cycles = false
+sample_entries = 1000
+json_stdout = false
+strict = true
